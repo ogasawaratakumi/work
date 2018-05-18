@@ -1,22 +1,27 @@
-//d=[1 0 0]の転置行列を掛け、x,y,z軸にangle回転したベクトルを表す。
+//dベクトルの転置行列を掛け、x,y,z軸にangle回転したベクトルを表す。
 #include <iostream>
 #include <cmath>
 #include "Eigen/Dense"
 int main()
 {
     double angle;
+    double num1, num2, num3; //dベクトルの成分
     double a; //角度
     char flag; //軸選択
 
-    std::cout << "どの軸に何度回転させますか。" << std::endl;
+    std::cout << "どの軸に何度回転させますか。" << std::endl << std::endl;
+    std::cout << "dベクトルの成分を入力：" << std::endl;
+    std::cin >> num1;
+    std::cin >> num2;
+    std::cin >> num3;
     std::cout << "軸を入力：";    std::cin >> flag;
     std::cout << "角度を入力：";  std::cin >> a;
     angle = a*M_PI/180.0;
 
     Eigen::MatrixXd d(3,1);
-    d << 1,
-         0,
-         0;
+    d << num1,
+         num2,
+         num3;
 
     //Xの回転行列
     Eigen:: Matrix3d X;
